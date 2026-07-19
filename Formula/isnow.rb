@@ -29,6 +29,10 @@ class Isnow < Formula
 
   def install
     bin.install Dir["isnow-*"].first => "isnow"
+    bash_completion.install "completions/isnow.bash" => "isnow" if File.exist?("completions/isnow.bash")
+    zsh_completion.install "completions/isnow.zsh" => "_isnow" if File.exist?("completions/isnow.zsh")
+    fish_completion.install "completions/isnow.fish" if File.exist?("completions/isnow.fish")
+    man1.install "man/isnow.1" if File.exist?("man/isnow.1")
   end
 
   test do

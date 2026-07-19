@@ -65,6 +65,10 @@ class ${class} < Formula
 
   def install
     bin.install Dir["${name}-*"].first => "${name}"
+    bash_completion.install "completions/${name}.bash" => "${name}" if File.exist?("completions/${name}.bash")
+    zsh_completion.install "completions/${name}.zsh" => "_${name}" if File.exist?("completions/${name}.zsh")
+    fish_completion.install "completions/${name}.fish" if File.exist?("completions/${name}.fish")
+    man1.install "man/${name}.1" if File.exist?("man/${name}.1")
   end
 
   test do
@@ -75,5 +79,5 @@ EOF
   echo "Formula/${name}.rb ← ${tag}"
 }
 
-formula tsvsheet tsvsheet.go Tsvsheet "Spreadsheet for plain text — compute .tsvt grids of values and =formulas"
+formula tsv tsvsheet.go Tsv "Spreadsheet for plain text — compute .tsvt grids of values and =formulas"
 formula isnow isnow.go Isnow "Match instants against isnow date/time patterns"
