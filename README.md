@@ -4,7 +4,7 @@ The [Homebrew](https://brew.sh) tap for the [tsvsheet](https://tsvsheet.com) CLI
 
 ```sh
 brew tap tsvsheet/tap
-brew install tsvsheet   # a spreadsheet for plain text
+brew install tsvsheet   # a spreadsheet in plain text
 brew install isnow      # match instants against isnow date/time patterns
 ```
 
